@@ -18,9 +18,9 @@ class BankDetails(BaseModel):
 # =====================================================================
 class CustomerDetails(BaseModel):
     accNumber: str = Field(description="The complete primary bank account number belonging to the customer. Look for labels like 'Account No.', 'A/C Num', or 'Account Identifier'.")
-    customerAddress: str = Field(description="The physical mailing or residential address of the account holder. Extract the entire multi-line block text exactly as printed.")
+    customerAddress: str = Field(description="The physical mailing or residential address of the account holder. Extract the entire multi-line block text exactly as printed. eg: H:no:3-3-43, Gandhi Nagar phase 2")
     accOpenDate: Optional[date] = Field(default=None,description="The date the account was originally opened. If not explicitly stated in the summary section, return None. Always return dates in ISO format (YYYY-MM-DD). Convert dd/mm/yyyy or mm/dd/yyyy into ISO before output.")
-    accType: str = Field(description="The structural type classification of the banking account. Categorize or extract values like 'Savings', 'Current', 'Checking', or 'Salary Account'.")
+    accType: str = Field(description="The structural type classification of the banking account. Categorize or extract values like 'Savings', 'Current', or 'Salary Account'. Output No, if not mentioned")
     cifNumber: Optional[str] = Field(description="The Customer Information File number or unique Customer ID. Look for labels like 'CIF No.', 'Customer ID', or 'Cust ID'. If missing, return None.")
     nomineeExists: Literal['Yes', 'No'] = Field(description="Determine if a registration nominee is listed on the account. If a nominee name or 'Registered' is present, output 'Yes'. If explicitly 'Not Registered' or absent, output 'No'.")
     mobileNumber: Optional[int] = Field(default=None,description="The registered mobile contact number of the customer. Strip out symbols or spaces if present. Return None if not visible.")
