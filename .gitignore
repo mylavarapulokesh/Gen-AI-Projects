@@ -1,0 +1,12 @@
+venv/
+.env
+Google Passwords.csv
+AI_BANK_STATEMENT_ANALYZER/all_bankstatements/
+AI_BANK_STATEMENT_ANALYZER/__pycache__/
+AI_BANK_STATEMENT_ANALYZER/AI Bank statement analyzer.pdf
+AI_BANK_STATEMENT_ANALYZER/generic_response.json
+AI_BANK_STATEMENT_ANALYZER/transaction_response.json
+AI_POWERED_PROFILE_ONBOARDER/__pycache__/
+AI_POWERED_PROFILE_ONBOARDER/all_resumes/
+AI_POWERED_PROFILE_ONBOARDER/candidate_profile.json
+Bank Statements Dataset/

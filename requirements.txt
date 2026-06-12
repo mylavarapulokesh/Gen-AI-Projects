@@ -1,0 +1,14 @@
+langchain
+langchain-groq
+faiss-cpu
+langchain-community
+langchain-openai
+chromadb
+pypdf
+python-dotenv
+ipykernel
+streamlit
+pymupdf
+sqlmodel
+psycopg2-binary
+pdfplumber
