@@ -4,7 +4,7 @@ import uuid
 from typing import Optional
 from datetime import date
 from sqlalchemy import BigInteger
-
+# Each class is pydantic object i.e. a schema of DB tables to store Resume data
 class UserAccount(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
     username: str # = Field(default=BasicInfo.email)

@@ -40,7 +40,7 @@ class Awards(BaseModel):
     YearOfAward: int = Field(..., description="The 4-digit calendar year when the candidate received the award.")
     companyName: str = Field(..., description="The name of the organization, institute, or employer that issued and conferred the award to the candidate.")
 
-class ProfileInfo(BaseModel):
+class ProfileInfo(BaseModel): # Consilated Pydantic object and by using this schema LLM will give response
     candidateInfo: BasicInfo = Field(..., description="The foundational contact, identity, and high-level career summary details of the candidate.")
     candidateProjectHistory: list[ProjectHistory] = Field(default_factory=list, description="An itemized list containing the historical record of individual projects the candidate has executed throughout their career.")
     candidateSkillSet: list[SkillSet] = Field(default_factory=list, description="A comprehensive inventory list of the candidate's verified skills along with their corresponding proficiency levels.")

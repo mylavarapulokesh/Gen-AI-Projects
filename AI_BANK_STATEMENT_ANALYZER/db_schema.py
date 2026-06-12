@@ -43,4 +43,3 @@ class TransactionDetails(SQLModel,table=True):
     debitAmount: float = Field(default = 0.0)
     creditAmount: float = Field(default = 0.0)
     balanceAmount: float = Field(default = 0.0)
-

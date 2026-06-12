@@ -21,7 +21,7 @@ def pdf_to_docs(file_path:str):
     print(f"Number of documents in the pdf is: {len(docs)}")
     return docs
 
-def concat_docs(docs):
+def concat_docs(docs): # Takes docs and cocats page_content in each document and returns it
     print(f"received documents in concat_docs function\n {docs}")
     doc_content = ""
     for doc in docs:
@@ -29,7 +29,7 @@ def concat_docs(docs):
         doc_content = doc_content + doc.page_content
     return doc_content
 
-def extractInfo_And_InsertIntoDB(docs):
+def extractInfo_And_InsertIntoDB(docs): 
     doc_content = concat_docs(docs=docs)
 
     print(f"doc_content is: {doc_content}")

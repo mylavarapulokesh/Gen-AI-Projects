@@ -108,6 +108,8 @@ def extract_and_process_tables(file_path:str): # Takes a filepath of pdf uploade
 
             # 4. To print it cleanly, convert the rows matrix into string lines dynamically
             printable_matrix = "\n".join([" | ".join(row) for row in all_transactions])
+            with open("printable_matrix.txt",'a',encoding='utf-8') as f:
+                f.write(printable_matrix)
             print(f"\n Accumulated statement table data rows so far:\n{printable_matrix}\n")
             structured_statement_pydanticObj = rawtable_to_structured_pydantic(headers=master_headers,page_rows=all_transactions) # For each page table we get O/p of transactions individually here
             individual_statements_pydanticObj.append(structured_statement_pydanticObj) # now all the individual pydantic objects that contains respective pdf page tables 

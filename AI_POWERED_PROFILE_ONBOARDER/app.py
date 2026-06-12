@@ -55,4 +55,4 @@ print(f"file path is: {file_path}")
 
 #loader = PyMuPDFLoader(file_path=file_path)
 docs = pdf_to_docs(file_path=file_path)
-extractInfo_And_InsertIntoDB(docs=docs)
+extractInfo_And_InsertIntoDB(docs=docs) # takes documents and process them and isert into DB
