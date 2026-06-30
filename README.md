@@ -32,9 +32,9 @@ Extracted facts are parsed into explicit Python typed objects (`Pydantic`) and s
 * **Frontend UI:** Streamlit
 * **Orchestration Framework:** LangChain (LCEL)
 * **Document Parser:** pdfplumber
-* **LLM Engine:** OpenAI GPT-4o / Anthropic Claude-3.5-Sonnet (configured with `.with_structured_output()`)
+* **LLM Engine:** OpenAI GPT-4o (configured with `.with_structured_output()`)
 * **Database Layer:** PostgreSQL (managed via SQLAlchemy ORM / psycopg2)
-* **Vector Vector Analytics:** FAISS / pgvector
+* **Vector Vector Analytics:** FAISS
 
 # Project 2: AI Powered Profile Onboarder
 
@@ -56,17 +56,16 @@ The application parses complex, multi-page documents and normalizes the informat
 ## 🛠️ Tech Stack
 
 * **Backend Framework:** FastAPI / Python 3.11+
-* **Orchestration & Parsing:** LiteLLM / LangChain (Structured Output Parsing via Pydantic)
-* **LLM Infrastructure:** OpenAI GPT-4o-mini / Groq Llama-3.3 (configured with latency/failover routing)
-* **Database Layer:** PostgreSQL / SQLite (managed via SQLAlchemy ORM)
-* **Document Processing:** PyPDF2 / pdfplumber
+* **Orchestration & Parsing:** LangChain (Structured Output Parsing via Pydantic)
+* **LLM Infrastructure:** OpenAI GPT-4o-mini
+* **Database Layer:** PostgreSQL (managed via SQLAlchemy ORM)
+* **Document Processing:** PymuPDF / pdfplumber
 
 ---
 
 ## 🚀 Key Features
 
 * **Deterministic JSON Extraction:** Uses Pydantic validation schemas (`BaseModel`) to force open-ended LLMs to strictly return structured database-ready payloads.
-* **Failover & Latency Routing:** Implements an LLM Gateway pattern using LiteLLM. If the primary parsing model encounters a rate limit or latency spike, the infrastructure automatically routes traffic to a backup open-weight model pool.
 * **Relational Mapping Layer:** Automatically parses the incoming nested JSON and correctly populates foreign keys across all 5 database tables concurrently within an ACID-compliant transaction window.
 
 ---
