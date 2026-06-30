@@ -1,4 +1,4 @@
-# AI-Powered Financial Statement Analyzer
+#Project 1:  AI-Powered Financial Statement Analyzer
 
 An enterprise-grade retrieval-augmented generation (RAG) application that ingests complex PDF financial statements, extracts highly accurate raw text, executes intelligent semantic semantic search, and saves parsed entities across a relational PostgreSQL schema.
 
@@ -36,9 +36,37 @@ Extracted facts are parsed into explicit Python typed objects (`Pydantic`) and s
 * **Database Layer:** PostgreSQL (managed via SQLAlchemy ORM / psycopg2)
 * **Vector Vector Analytics:** FAISS / pgvector
 
-Environment Variables (.env)
-Create a .env configuration file in the project root folder:
+#Project 2: AI Powered Profile Onboarder
 
-Code snippet
-OPENAI_API_KEY=your_openai_api_key_here
-DATABASE_URL=postgresql://db_user:db_password@localhost:5432/statement_analyzer_db
+[Unstructured Resume] ──> [LLM Gateway / Parser] ──> [Structured JSON] ──> [Table Relational DB]
+
+
+## 🏗️ Architecture & Database Schema
+
+The application parses complex, multi-page documents and normalizes the information into five separate tables to eliminate redundancy and maintain strict data integrity:
+
+1. **`candidates` (Core Profile):** Stores primary personal identification (First Name, Last Name, Email, Phone, LinkedIn URL, Portfolio link).
+2. **`education` (Academic History):** One-to-many relationship tracking Institutions, Degrees, Majors, Graduation Dates, and GPAs.
+3. **`experience` (Professional History):** One-to-many relationship mapping Companies, Job Titles, Start/End Dates, and core achievements.
+4. **`skills` (Technical & Soft Capabilities):** Categorized and tagged competencies mapped back to the candidate's profile.
+5. **`projects` (Portfolios & Synthetics):** Details regarding independent or industrial projects, including technologies used and descriptions.
+
+---
+
+## 🛠️ Tech Stack
+
+* **Backend Framework:** FastAPI / Python 3.11+
+* **Orchestration & Parsing:** LiteLLM / LangChain (Structured Output Parsing via Pydantic)
+* **LLM Infrastructure:** OpenAI GPT-4o-mini / Groq Llama-3.3 (configured with latency/failover routing)
+* **Database Layer:** PostgreSQL / SQLite (managed via SQLAlchemy ORM)
+* **Document Processing:** PyPDF2 / pdfplumber
+
+---
+
+## 🚀 Key Features
+
+* **Deterministic JSON Extraction:** Uses Pydantic validation schemas (`BaseModel`) to force open-ended LLMs to strictly return structured database-ready payloads.
+* **Failover & Latency Routing:** Implements an LLM Gateway pattern using LiteLLM. If the primary parsing model encounters a rate limit or latency spike, the infrastructure automatically routes traffic to a backup open-weight model pool.
+* **Relational Mapping Layer:** Automatically parses the incoming nested JSON and correctly populates foreign keys across all 5 database tables concurrently within an ACID-compliant transaction window.
+
+---
