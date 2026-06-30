@@ -1,4 +1,4 @@
-#Project 1:  AI-Powered Financial Statement Analyzer
+# Project 1:  AI-Powered Financial Statement Analyzer
 
 An enterprise-grade retrieval-augmented generation (RAG) application that ingests complex PDF financial statements, extracts highly accurate raw text, executes intelligent semantic semantic search, and saves parsed entities across a relational PostgreSQL schema.
 
@@ -36,7 +36,7 @@ Extracted facts are parsed into explicit Python typed objects (`Pydantic`) and s
 * **Database Layer:** PostgreSQL (managed via SQLAlchemy ORM / psycopg2)
 * **Vector Vector Analytics:** FAISS / pgvector
 
-#Project 2: AI Powered Profile Onboarder
+# Project 2: AI Powered Profile Onboarder
 
 [Unstructured Resume] ──> [LLM Gateway / Parser] ──> [Structured JSON] ──> [Table Relational DB]
 
